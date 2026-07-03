@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   vaultwarden:
     image: vaultwarden/server:latest
@@ -8,11 +6,11 @@ services:
     expose:
       - "80"
     environment:
-      - SIGNUPS_ALLOWED=true
+      - SIGNUPS_ALLOWED=true       # Toggle to false AFTER you register your account
       - INVITATIONS_ALLOWED=true
       - WEBSOCKET_ENABLED=true
     volumes:
-      - "C:\\Users\\hp\\Desktop\\SelfHost\\vaultwarden-system:/data"
+      - ./vaultwarden_data:/data   # Maps data directly into your local directory
     networks:
       - proxy-network
 
